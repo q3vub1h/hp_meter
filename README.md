@@ -2,6 +2,10 @@
 
 A free and open app made in godot 4.4 for tracking player health in board games
 
+![Alt text](scr_19_01_2026_10_50_39.png)
+![Alt text](scr_19_01_2026_10_50_56.png)
+![Alt text](scr_19_01_2026_10_51_13.png)
+
 ## Usage
 
 - Press "+" to add player
