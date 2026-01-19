@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd5cfueqwdey"]
+
+[ext_resource type="Script" uid="uid://dt7rq8osax8l5" path="res://script/player.gd" id="1_hjaqi"]
+[ext_resource type="Texture2D" uid="uid://diaklpvyo86jl" path="res://assets/add.png" id="2_fvtld"]
+
+[sub_resource type="SystemFont" id="SystemFont_hjaqi"]
+font_names = PackedStringArray("Consolas")
+font_weight = 999
+font_stretch = 200
+subpixel_positioning = 0
+
+[node name="player" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hjaqi")
+
+[node name="icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -149.5
+offset_right = 174.0
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="v" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -94.0
+offset_right = 116.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="control_btns" type="HBoxContainer" parent="v"]
+layout_mode = 2
+alignment = 1
+
+[node name="icon" type="TextureButton" parent="v/control_btns"]
+custom_minimum_size = Vector2(39, 39)
+layout_mode = 2
+texture_normal = ExtResource("2_fvtld")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="plr_color_picker" type="ColorPickerButton" parent="v/control_btns"]
+custom_minimum_size = Vector2(39, 0)
+layout_mode = 2
+edit_alpha = false
+
+[node name="del_btn" type="Button" parent="v/control_btns"]
+self_modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(39, 39)
+layout_mode = 2
+text = "x"
+
+[node name="h" type="HBoxContainer" parent="v"]
+layout_mode = 2
+alignment = 1
+
+[node name="minus" type="Button" parent="v/h"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="hp" type="Label" parent="v/h"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("SystemFont_hjaqi")
+theme_override_font_sizes/font_size = 130
+text = "20"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="plus" type="Button" parent="v/h"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="hp_changes" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 59.0
+offset_right = 20.0
+offset_bottom = 84.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hp_off_timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="pressed" from="v/control_btns/icon" to="." method="_on_texture_button_pressed"]
+[connection signal="color_changed" from="v/control_btns/plr_color_picker" to="." method="_on_plr_color_picker_color_changed"]
+[connection signal="pressed" from="v/control_btns/del_btn" to="." method="_on_del_btn_pressed"]
+[connection signal="pressed" from="v/h/minus" to="." method="_on_minus_pressed"]
+[connection signal="pressed" from="v/h/plus" to="." method="_on_plus_pressed"]
+[connection signal="timeout" from="hp_off_timer" to="." method="_on_hp_off_timer_timeout"]

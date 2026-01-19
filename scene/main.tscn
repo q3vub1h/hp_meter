@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://crrm4a86gywo5"]
+
+[ext_resource type="Script" uid="uid://drn6hvqd6r217" path="res://script/main.gd" id="1_itxqv"]
+[ext_resource type="PackedScene" uid="uid://dcdssy6gnhdcu" path="res://scene/menu.tscn" id="2_v0l8b"]
+[ext_resource type="Shader" uid="uid://cqajhxppwksix" path="res://shaders/pie.gdshader" id="2_wp4xf"]
+[ext_resource type="Texture2D" uid="uid://x5hbkttshwrr" path="res://assets/settings.png" id="3_0ha60"]
+[ext_resource type="Texture2D" uid="uid://q0i3dfsd3yf5" path="res://assets/reset.png" id="4_4j5ol"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_brvut"]
+shader = ExtResource("2_wp4xf")
+shader_parameter/num_colors = 0
+shader_parameter/colors = PackedColorArray(1, 0, 0, 1, 1, 0.515625, 0, 1, 0.992188, 1, 0, 1, 0.03125, 1, 0, 1, 0, 0.952941, 1, 1, 0.00784314, 0, 1, 1, 0.546875, 0, 1, 1, 1, 0, 0.960938, 1)
+shader_parameter/blur_strength = 0.0
+
+[sub_resource type="Curve2D" id="Curve2D_itxqv"]
+_data = {
+"points": PackedVector2Array(-100, 0, 200, 0, 540, 520, 0, 200, 0, -200, 960, 300, 200, 0, -200, 0, 540, 80, 0, -200, 0, 200, 120, 300, -200, 0, 194.348, -0.620921, 540, 520)
+}
+point_count = 5
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_itxqv")
+metadata/_edit_vertical_guides_ = [540.0]
+metadata/_edit_horizontal_guides_ = [301.0]
+
+[node name="bg" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_brvut")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -499.0
+offset_right = 260.0
+offset_bottom = 498.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(800, 800)
+
+[node name="path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_itxqv")
+
+[node name="load_icon" type="FileDialog" parent="."]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.jpeg", "*.jpg", "*.bmp", "*.webp", "*.dds", "*.ktx")
+use_native_dialog = true
+
+[node name="control_panel" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -28.5
+offset_right = 89.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="setts" type="Button" parent="control_panel"]
+layout_mode = 2
+icon = ExtResource("3_0ha60")
+icon_alignment = 1
+
+[node name="reset" type="Button" parent="control_panel"]
+layout_mode = 2
+icon = ExtResource("4_4j5ol")
+icon_alignment = 1
+
+[node name="add_player" type="Button" parent="control_panel"]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+text = "+"
+
+[node name="d20" type="Button" parent="control_panel"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+text = "d20"
+
+[node name="menu" parent="." instance=ExtResource("2_v0l8b")]
+visible = false
+layout_mode = 1
+
+[connection signal="file_selected" from="load_icon" to="." method="_on_load_icon_file_selected"]
+[connection signal="pressed" from="control_panel/setts" to="." method="_on_setts_pressed"]
+[connection signal="pressed" from="control_panel/reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="control_panel/add_player" to="." method="_on_add_player_pressed"]
+[connection signal="pressed" from="control_panel/d20" to="." method="_on_d_20_pressed"]

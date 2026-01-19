@@ -1,0 +1,70 @@
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://du8a2eku82joc"]
+
+[sub_resource type="SystemFont" id="SystemFont_o6bca"]
+font_names = PackedStringArray("Consolas")
+font_weight = 999
+
+[sub_resource type="SystemFont" id="SystemFont_i0ir6"]
+font_names = PackedStringArray("Consolas")
+font_weight = 999
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0ir6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcump"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5l6cs"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klomd"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_klomd"]
+font_names = PackedStringArray("Consolas")
+font_weight = 999
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6bca"]
+draw_center = false
+border_width_bottom = 2
+corner_detail = 1
+
+[sub_resource type="SystemFont" id="SystemFont_5l6cs"]
+font_names = PackedStringArray("Consolas")
+font_weight = 999
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5l6cs"]
+
+[sub_resource type="SystemFont" id="SystemFont_pcump"]
+font_names = PackedStringArray("Consolas")
+font_weight = 999
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o6bca"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ir6"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcump"]
+
+[resource]
+Button/font_sizes/font_size = 30
+Button/fonts/font = SubResource("SystemFont_o6bca")
+CodeEdit/font_sizes/font_size = 18
+CodeEdit/fonts/font = SubResource("SystemFont_i0ir6")
+CodeEdit/styles/focus = SubResource("StyleBoxEmpty_i0ir6")
+CodeEdit/styles/normal = SubResource("StyleBoxFlat_pcump")
+CodeEdit/styles/panel = SubResource("StyleBoxFlat_5l6cs")
+CodeEdit/styles/read_only = SubResource("StyleBoxFlat_klomd")
+HBoxContainer/constants/separation = 0
+Label/font_sizes/font_size = 24
+Label/fonts/font = SubResource("SystemFont_klomd")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_o6bca")
+SpinBox/constants/buttons_width = 50
+TabContainer/constants/side_margin = 16
+TabContainer/font_sizes/font_size = 22
+TabContainer/fonts/font = SubResource("SystemFont_5l6cs")
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_5l6cs")
+TextEdit/font_sizes/font_size = 18
+TextEdit/fonts/font = SubResource("SystemFont_pcump")
+TextEdit/styles/focus = SubResource("StyleBoxEmpty_o6bca")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_i0ir6")
+TextEdit/styles/read_only = SubResource("StyleBoxEmpty_pcump")
