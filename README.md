@@ -5,7 +5,10 @@ A free and open app made in godot 4.4 for tracking player health in board games
 ## Usage
 
 - Press "+" to add player
+- Press on the right and the left of players health to change it
 - Press red "x" above player to delete player
+- Press color rectacle button above player to change player color
+- Press "Plus" button above player to add picture for player
 - Press "Cog" button to open settings
 - Press d20 button to throw d20 die
 - Press "Reset" button to reset player hp to default: 20 (Can be changed in settings)
