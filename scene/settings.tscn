@@ -28,28 +28,44 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 12
 
-[node name="Label2" type="Label" parent="v"]
+[node name="base_plr_hp,2" type="HBoxContainer" parent="v"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Base player HP: "
 
-[node name="hp" type="SpinBox" parent="v/Label2"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -30.5
-offset_bottom = 31.5
-grow_horizontal = 0
-grow_vertical = 2
-min_value = 1.0
+[node name="l" type="Label" parent="v/base_plr_hp,2"]
+layout_mode = 2
+text = "Base player hp: "
+
+[node name="s" type="HSlider" parent="v/base_plr_hp,2"]
+layout_mode = 2
+size_flags_horizontal = 3
 value = 20.0
 rounded = true
 allow_greater = true
-alignment = 1
-update_on_text_changed = true
+allow_lesser = true
+tick_count = 6
+ticks_on_borders = true
 
-[connection signal="value_changed" from="v/Label2/hp" to="." method="_on_hp_value_changed"]
+[node name="c" type="Label" parent="v/base_plr_hp,2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="d_max_value,2" type="HBoxContainer" parent="v"]
+layout_mode = 2
+
+[node name="l" type="Label" parent="v/d_max_value,2"]
+layout_mode = 2
+text = "D max value: "
+
+[node name="s" type="HSlider" parent="v/d_max_value,2"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 20.0
+rounded = true
+allow_greater = true
+allow_lesser = true
+tick_count = 6
+ticks_on_borders = true
+
+[node name="c" type="Label" parent="v/d_max_value,2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2

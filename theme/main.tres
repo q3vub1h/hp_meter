@@ -1,8 +1,10 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://du8a2eku82joc"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://du8a2eku82joc"]
 
 [sub_resource type="SystemFont" id="SystemFont_o6bca"]
 font_names = PackedStringArray("Consolas")
 font_weight = 999
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klomd"]
 
 [sub_resource type="SystemFont" id="SystemFont_i0ir6"]
 font_names = PackedStringArray("Consolas")
@@ -48,6 +50,7 @@ bg_color = Color(0.180392, 0.180392, 0.180392, 1)
 [resource]
 Button/font_sizes/font_size = 30
 Button/fonts/font = SubResource("SystemFont_o6bca")
+Button/styles/focus = SubResource("StyleBoxEmpty_klomd")
 CodeEdit/font_sizes/font_size = 18
 CodeEdit/fonts/font = SubResource("SystemFont_i0ir6")
 CodeEdit/styles/focus = SubResource("StyleBoxEmpty_i0ir6")

@@ -67,13 +67,17 @@ stretch_mode = 5
 [node name="plr_color_picker" type="ColorPickerButton" parent="v/control_btns"]
 custom_minimum_size = Vector2(39, 0)
 layout_mode = 2
+flat = true
 edit_alpha = false
 
 [node name="del_btn" type="Button" parent="v/control_btns"]
 self_modulate = Color(1, 0, 0, 1)
 custom_minimum_size = Vector2(39, 39)
 layout_mode = 2
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 30
 text = "x"
+flat = true
 
 [node name="h" type="HBoxContainer" parent="v"]
 layout_mode = 2
@@ -107,9 +111,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = 59.0
+offset_top = 61.0
 offset_right = 20.0
-offset_bottom = 84.0
+offset_bottom = 86.0
 grow_horizontal = 2
 horizontal_alignment = 1
 vertical_alignment = 1

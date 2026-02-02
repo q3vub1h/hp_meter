@@ -10,5 +10,6 @@ var plr_count:int = 0:
 		main.get_node("bg").material.set_shader_parameter("num_colors",plr_count)
 
 var base_plr_hp:int = 20
+var d_max_value:int = 20
 
 var max_plrs:int=8

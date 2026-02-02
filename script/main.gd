@@ -67,9 +67,9 @@ func _on_reset_pressed() -> void:
 func _on_add_player_pressed()->void:
 	show_hidden_plr()
 
-func _on_d_20_pressed() -> void:
-	var s:Button = $control_panel/d20
-	s.text = str( randi_range(1,20) )
+func _on_d_pressed() -> void:
+	var s:Button = $control_panel/d
+	s.text = str( randi_range(1,G.d_max_value) )
 	s.self_modulate = Color.RED
 	await get_tree().create_timer(1).timeout
 	s.self_modulate = Color.WHITE
