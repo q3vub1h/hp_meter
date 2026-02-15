@@ -7,6 +7,7 @@ var plrs:Array[String] = []
 var plr_count:int = 0:
 	set(nv):
 		plr_count=nv
+		S.plr_count_changed.emit(plr_count)
 		main.get_node("bg").material.set_shader_parameter("num_colors",plr_count)
 
 var base_plr_hp:int = 20

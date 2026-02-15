@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crrm4a86gywo5"]
+[gd_scene load_steps=11 format=3 uid="uid://crrm4a86gywo5"]
 
 [ext_resource type="Script" uid="uid://drn6hvqd6r217" path="res://script/main.gd" id="1_itxqv"]
 [ext_resource type="PackedScene" uid="uid://dcdssy6gnhdcu" path="res://scene/menu.tscn" id="2_v0l8b"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://x5hbkttshwrr" path="res://assets/settings.png" id="3_0ha60"]
 [ext_resource type="Texture2D" uid="uid://q0i3dfsd3yf5" path="res://assets/reset.png" id="4_4j5ol"]
 [ext_resource type="Texture2D" uid="uid://diaklpvyo86jl" path="res://assets/add.png" id="5_p1hux"]
+[ext_resource type="Texture2D" uid="uid://cxej3wqfoifgf" path="res://assets/minus.png" id="6_b5f6u"]
 [ext_resource type="Texture2D" uid="uid://bltgs2kab876n" path="res://assets/d20.png" id="6_of57s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_brvut"]
@@ -84,6 +85,15 @@ icon = ExtResource("4_4j5ol")
 flat = true
 icon_alignment = 1
 
+[node name="del_player" type="Button" parent="control_panel"]
+clip_contents = true
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+icon = ExtResource("6_b5f6u")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [node name="add_player" type="Button" parent="control_panel"]
 clip_contents = true
 custom_minimum_size = Vector2(72, 72)
@@ -111,5 +121,6 @@ layout_mode = 1
 [connection signal="file_selected" from="load_icon" to="." method="_on_load_icon_file_selected"]
 [connection signal="pressed" from="control_panel/setts" to="." method="_on_setts_pressed"]
 [connection signal="pressed" from="control_panel/reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="control_panel/del_player" to="." method="_on_del_player_pressed"]
 [connection signal="pressed" from="control_panel/add_player" to="." method="_on_add_player_pressed"]
 [connection signal="pressed" from="control_panel/d" to="." method="_on_d_pressed"]

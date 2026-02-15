@@ -65,7 +65,10 @@ func _on_reset_pressed() -> void:
 		p.set_hp(G.base_plr_hp)
 
 func _on_add_player_pressed()->void:
-	show_hidden_plr()
+	add_plr()
+
+func _on_del_player_pressed() -> void:
+	delete_plr()
 
 func _on_d_pressed() -> void:
 	var s:Button = $control_panel/d
@@ -76,19 +79,20 @@ func _on_d_pressed() -> void:
 
 ### FUNCTIONS
 
-func show_hidden_plr()->void:
+func add_plr()->void:
 	for i:PathFollow2D in $path.get_children():
 		if i.visible==false:
 			i.show()
 			G.plr_count+=1
-			S.plr_count_changed.emit(G.plr_count)
 			recalc_circle()
 			return
 
-func has_hidden_plr()->bool:
-	for i in $path.get_children():
-		if i.visible==false: return true
-	return false
+func delete_plr()->void:
+	var last_visible_child = _get_last_visible_child($path)
+	if last_visible_child!=null:
+		G.plr_count-=1
+		last_visible_child.hide()
+		S.plr_deleted.emit()
 
 func recalc_circle()->void:
 	var progress_ratio:float = 1/float(G.plr_count)
@@ -98,3 +102,13 @@ func recalc_circle()->void:
 		if pf.visible==false:continue
 		pf.progress_ratio = progress_ratio*plr_count
 		plr_count+=1
+
+func _get_last_visible_child(node:Node):
+	var visible_children = []
+	for child in node.get_children():
+		if child.visible:
+			visible_children.append(child)
+
+	if visible_children.size() > 0:
+		return visible_children[-1]
+	return null

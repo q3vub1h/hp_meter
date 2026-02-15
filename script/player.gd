@@ -5,8 +5,12 @@ extends Control
 
 var hp_changes:int = 0
 
-func _ready() -> void:
-	S.plr_added.emit(self)
+func _on_visibility_changed() -> void:
+	if visible==true:
+		S.plr_added.emit(self)
+		set_hp(G.base_plr_hp)
+	else:
+		S.plr_deleted.emit(self)
 
 func _on_texture_button_pressed() -> void:
 	var popup:FileDialog = G.main.get_node("load_icon")
@@ -34,13 +38,6 @@ func set_hp(i:int)->void:
 	hp=i
 	$v/h/hp.text=str(hp)
 
-func _on_del_btn_pressed() -> void:
-	G.plr_count-=1
-	S.plr_count_changed.emit(G.plr_count)
-	var last_visible_child = _get_last_visible_child(G.main.get_node("path"))
-	last_visible_child.hide()
-	S.plr_deleted.emit()
-
 func _on_plr_color_picker_color_changed(color: Color) -> void:
 	var bg_mat:ShaderMaterial = G.main.get_node("bg").material
 	var cur_colors:PackedColorArray = bg_mat.get_shader_parameter("colors")
@@ -54,13 +51,3 @@ func _on_plr_color_picker_color_changed(color: Color) -> void:
 func _on_hp_off_timer_timeout() -> void:
 	hp_changes=0
 	$hp_changes.hide()
-
-func _get_last_visible_child(node:Node):
-	var visible_children = []
-	for child in node.get_children():
-		if child.visible:
-			visible_children.append(child)
-
-	if visible_children.size() > 0:
-		return visible_children[-1]
-	return null

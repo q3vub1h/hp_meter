@@ -70,15 +70,6 @@ layout_mode = 2
 flat = true
 edit_alpha = false
 
-[node name="del_btn" type="Button" parent="v/control_btns"]
-self_modulate = Color(1, 0, 0, 1)
-custom_minimum_size = Vector2(39, 39)
-layout_mode = 2
-theme_override_constants/outline_size = 12
-theme_override_font_sizes/font_size = 30
-text = "x"
-flat = true
-
 [node name="h" type="HBoxContainer" parent="v"]
 layout_mode = 2
 alignment = 1
@@ -87,7 +78,13 @@ alignment = 1
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+text = "-"
 flat = true
+alignment = 0
 
 [node name="hp" type="Label" parent="v/h"]
 layout_mode = 2
@@ -103,7 +100,13 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 64
+text = "+"
 flat = true
+alignment = 2
 
 [node name="hp_changes" type="Label" parent="."]
 layout_mode = 1
@@ -122,9 +125,9 @@ vertical_alignment = 1
 wait_time = 1.5
 one_shot = true
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="v/control_btns/icon" to="." method="_on_texture_button_pressed"]
 [connection signal="color_changed" from="v/control_btns/plr_color_picker" to="." method="_on_plr_color_picker_color_changed"]
-[connection signal="pressed" from="v/control_btns/del_btn" to="." method="_on_del_btn_pressed"]
 [connection signal="pressed" from="v/h/minus" to="." method="_on_minus_pressed"]
 [connection signal="pressed" from="v/h/plus" to="." method="_on_plus_pressed"]
 [connection signal="timeout" from="hp_off_timer" to="." method="_on_hp_off_timer_timeout"]
