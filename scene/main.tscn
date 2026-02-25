@@ -17,7 +17,7 @@ shader_parameter/blur_strength = 0.0
 
 [sub_resource type="Curve2D" id="Curve2D_itxqv"]
 _data = {
-"points": PackedVector2Array(-100, 0, 200, 0, 540, 520, 0, 200, 0, -200, 960, 300, 200, 0, -200, 0, 540, 80, 0, -200, 0, 200, 120, 300, -200, 0, 194.348, -0.620921, 540, 520)
+"points": PackedVector2Array(-100, 0, 200, 0, 540, 500, 0, 200, 0, -200, 960, 300, 200, 0, -200, 0, 540, 100, 0, -200, 0, 200, 120, 300, -200, 0, 194.348, -0.620921, 540, 500)
 }
 point_count = 5
 
@@ -74,16 +74,20 @@ theme_override_constants/separation = 6
 alignment = 1
 
 [node name="setts" type="Button" parent="control_panel"]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
 icon = ExtResource("3_0ha60")
 flat = true
 icon_alignment = 1
+expand_icon = true
 
 [node name="reset" type="Button" parent="control_panel"]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
 icon = ExtResource("4_4j5ol")
 flat = true
 icon_alignment = 1
+expand_icon = true
 
 [node name="del_player" type="Button" parent="control_panel"]
 clip_contents = true

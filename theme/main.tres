@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://du8a2eku82joc"]
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://du8a2eku82joc"]
 
 [sub_resource type="SystemFont" id="SystemFont_o6bca"]
 font_names = PackedStringArray("Consolas")
@@ -20,6 +20,76 @@ bg_color = Color(0.180392, 0.180392, 0.180392, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klomd"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5abu"]
+bg_color = Color(0.765625, 0.765625, 0.765625, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.3125, 0.3125, 0.3125, 1)
+corner_detail = 1
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uf5d"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75awx"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lw8ei"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsfsn"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
 
 [sub_resource type="SystemFont" id="SystemFont_klomd"]
 font_names = PackedStringArray("Consolas")
@@ -57,6 +127,11 @@ CodeEdit/styles/focus = SubResource("StyleBoxEmpty_i0ir6")
 CodeEdit/styles/normal = SubResource("StyleBoxFlat_pcump")
 CodeEdit/styles/panel = SubResource("StyleBoxFlat_5l6cs")
 CodeEdit/styles/read_only = SubResource("StyleBoxFlat_klomd")
+ColorPickerButton/styles/disabled = SubResource("StyleBoxFlat_c5abu")
+ColorPickerButton/styles/focus = SubResource("StyleBoxFlat_4uf5d")
+ColorPickerButton/styles/hover = SubResource("StyleBoxFlat_75awx")
+ColorPickerButton/styles/normal = SubResource("StyleBoxFlat_lw8ei")
+ColorPickerButton/styles/pressed = SubResource("StyleBoxFlat_tsfsn")
 HBoxContainer/constants/separation = 0
 Label/font_sizes/font_size = 24
 Label/fonts/font = SubResource("SystemFont_klomd")

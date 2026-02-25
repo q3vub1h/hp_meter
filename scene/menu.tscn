@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://5unauynhycq2" path="res://scene/settings.tscn" id="2_8hxod"]
 
 [node name="menu" type="Panel"]
+self_modulate = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

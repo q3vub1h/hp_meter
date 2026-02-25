@@ -37,76 +37,79 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="v" type="VBoxContainer" parent="."]
+[node name="hp" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -94.0
-offset_right = 116.0
-offset_bottom = 80.0
+offset_top = -65.0
+offset_right = 1.0
+offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = SubResource("SystemFont_hjaqi")
+theme_override_font_sizes/font_size = 130
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="control_btns" type="HBoxContainer" parent="v"]
+[node name="minus" type="Button" parent="."]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+offset_left = -116.0
+offset_top = -64.0
+offset_bottom = 67.0
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 64
+text = "-"
+flat = true
+alignment = 0
+
+[node name="plus" type="Button" parent="."]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+offset_top = -64.0
+offset_right = 116.0
+offset_bottom = 67.0
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 64
+text = "+"
+flat = true
+alignment = 2
+
+[node name="control_btns" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = -150.0
+offset_top = -108.0
+offset_right = 150.0
+offset_bottom = -69.0
+theme_override_constants/separation = 8
 alignment = 1
 
-[node name="icon" type="TextureButton" parent="v/control_btns"]
+[node name="icon" type="TextureButton" parent="control_btns"]
 custom_minimum_size = Vector2(39, 39)
 layout_mode = 2
 texture_normal = ExtResource("2_fvtld")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="plr_color_picker" type="ColorPickerButton" parent="v/control_btns"]
+[node name="plr_color_picker" type="ColorPickerButton" parent="control_btns"]
 custom_minimum_size = Vector2(39, 0)
 layout_mode = 2
-flat = true
 edit_alpha = false
-
-[node name="h" type="HBoxContainer" parent="v"]
-layout_mode = 2
-alignment = 1
-
-[node name="minus" type="Button" parent="v/h"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 64
-text = "-"
-flat = true
-alignment = 0
-
-[node name="hp" type="Label" parent="v/h"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_fonts/font = SubResource("SystemFont_hjaqi")
-theme_override_font_sizes/font_size = 130
-text = "20"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="plus" type="Button" parent="v/h"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 64
-text = "+"
-flat = true
-alignment = 2
 
 [node name="hp_changes" type="Label" parent="."]
 layout_mode = 1
@@ -114,20 +117,21 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = 61.0
+offset_top = 51.0
 offset_right = 20.0
-offset_bottom = 86.0
+offset_bottom = 76.0
 grow_horizontal = 2
+theme_override_constants/outline_size = 16
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="hp_off_timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 2.0
 one_shot = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="v/control_btns/icon" to="." method="_on_texture_button_pressed"]
-[connection signal="color_changed" from="v/control_btns/plr_color_picker" to="." method="_on_plr_color_picker_color_changed"]
-[connection signal="pressed" from="v/h/minus" to="." method="_on_minus_pressed"]
-[connection signal="pressed" from="v/h/plus" to="." method="_on_plus_pressed"]
+[connection signal="pressed" from="minus" to="." method="_on_minus_pressed"]
+[connection signal="pressed" from="plus" to="." method="_on_plus_pressed"]
+[connection signal="pressed" from="control_btns/icon" to="." method="_on_texture_button_pressed"]
+[connection signal="color_changed" from="control_btns/plr_color_picker" to="." method="_on_plr_color_picker_color_changed"]
 [connection signal="timeout" from="hp_off_timer" to="." method="_on_hp_off_timer_timeout"]

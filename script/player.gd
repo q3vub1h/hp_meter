@@ -26,7 +26,8 @@ func change_hp(i:int)->void:
 	$hp_changes.show()
 	$hp_changes.text = str(hp_changes) if hp_changes < 0 else "+"+str(hp_changes)
 	$hp_off_timer.start()
-	$v/h/hp.text = str(hp)
+	$hp.text = str(hp)
+	change_font_size()
 
 func _on_plus_pressed() -> void:
 	change_hp(1)
@@ -36,7 +37,7 @@ func _on_minus_pressed() -> void:
 
 func set_hp(i:int)->void:
 	hp=i
-	$v/h/hp.text=str(hp)
+	$hp.text=str(hp)
 
 func _on_plr_color_picker_color_changed(color: Color) -> void:
 	var bg_mat:ShaderMaterial = G.main.get_node("bg").material
@@ -51,3 +52,9 @@ func _on_plr_color_picker_color_changed(color: Color) -> void:
 func _on_hp_off_timer_timeout() -> void:
 	hp_changes=0
 	$hp_changes.hide()
+
+func change_font_size()->void:
+	var l:int = $hp.text.length()
+	match l:
+		3: $hp.add_theme_font_size_override(&"font_size",90)
+		_: $hp.add_theme_font_size_override(&"font_size",130)

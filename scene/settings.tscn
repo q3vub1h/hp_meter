@@ -20,22 +20,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -311.0
+offset_left = -415.0
 offset_top = -278.0
-offset_right = 311.0
+offset_right = 415.0
 offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 12
+alignment = 1
 
-[node name="base_plr_hp,2" type="HBoxContainer" parent="v"]
+[node name="g,base_plr_hp,2" type="HBoxContainer" parent="v"]
 layout_mode = 2
 
-[node name="l" type="Label" parent="v/base_plr_hp,2"]
+[node name="l" type="Label" parent="v/g,base_plr_hp,2"]
 layout_mode = 2
-text = "Base player hp: "
+text = "Base Player HP: "
 
-[node name="s" type="HSlider" parent="v/base_plr_hp,2"]
+[node name="s" type="HSlider" parent="v/g,base_plr_hp,2"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
@@ -47,18 +48,18 @@ allow_lesser = true
 tick_count = 6
 ticks_on_borders = true
 
-[node name="c" type="Label" parent="v/base_plr_hp,2"]
+[node name="c" type="Label" parent="v/g,base_plr_hp,2"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="d_max_value,2" type="HBoxContainer" parent="v"]
+[node name="g,d_max_value,2" type="HBoxContainer" parent="v"]
 layout_mode = 2
 
-[node name="l" type="Label" parent="v/d_max_value,2"]
+[node name="l" type="Label" parent="v/g,d_max_value,2"]
 layout_mode = 2
-text = "D max value: "
+text = "Dice Max Value: "
 
-[node name="s" type="HSlider" parent="v/d_max_value,2"]
+[node name="s" type="HSlider" parent="v/g,d_max_value,2"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 2.0
@@ -69,6 +70,56 @@ allow_lesser = true
 tick_count = 6
 ticks_on_borders = true
 
-[node name="c" type="Label" parent="v/d_max_value,2"]
+[node name="c" type="Label" parent="v/g,d_max_value,2"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+
+[node name="e,max_fps,2" type="HBoxContainer" parent="v"]
+layout_mode = 2
+
+[node name="l" type="Label" parent="v/e,max_fps,2"]
+layout_mode = 2
+text = "Max FPS: "
+
+[node name="s" type="HSlider" parent="v/e,max_fps,2"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 2.0
+max_value = 60.0
+value = 16.0
+rounded = true
+allow_greater = true
+allow_lesser = true
+tick_count = 6
+ticks_on_borders = true
+
+[node name="c" type="Label" parent="v/e,max_fps,2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="ds,screen_set_keep_on" type="HBoxContainer" parent="v"]
+layout_mode = 2
+
+[node name="l" type="Label" parent="v/ds,screen_set_keep_on"]
+layout_mode = 2
+text = "Keep Screen On: "
+
+[node name="t" type="CheckButton" parent="v/ds,screen_set_keep_on"]
+layout_mode = 2
+button_pressed = true
+
+[node name="w,always_on_top" type="HBoxContainer" parent="v"]
+layout_mode = 2
+
+[node name="l" type="Label" parent="v/w,always_on_top"]
+layout_mode = 2
+text = "Always On Top (PC only)"
+
+[node name="t" type="CheckButton" parent="v/w,always_on_top"]
+layout_mode = 2
+button_pressed = true
+
+[node name="credits" type="Label" parent="v"]
+layout_mode = 2
+text = "Icons - https://icon-sets.iconify.design"
+horizontal_alignment = 1
